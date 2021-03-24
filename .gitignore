@@ -1,0 +1,14 @@
+*.asm
+*.cof
+*.cod
+*.dep
+*.equ
+*.hex
+*.map
+*.lst
+*.o
+*.narration
+*.adb
+*.blst
+*.bmap
+*.bhex

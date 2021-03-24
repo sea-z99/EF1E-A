@@ -1,0 +1,62 @@
+//########### 更多见工具中(如"C:\ChipONCC\examples")文件isr_push_stk_fun.h & isr_push_stk_fun.c
+ 
+//!!!!!! 当你在中断中调用函数时，不建议调用带参数的函数，否则需要进行参数保护
+//!!!!!! 参数保护会占用额外的RAM地址和中断代码，因此中断响应的及时性会受到影响
+//!!!!!! 保护压栈代码可以在合适的地方调用，从而实现使不需要压栈的中断执行快速进入和退出。
+//##################################  复制内容到  "isr_push_stk_fun.h"
+//!!!!!! 不支持中断和外部功能同时调用一个函数，除非逻辑标记上永远不会同时运行（非堆栈的过程变量固定统一RAM地址），限制包括乘除法、取余等操作。
+//1、在中断所在文件中建立全局变量  ,用来保存函数调用的参数
+//  使用STK00~STK11作为参数传递，根据具体使用的数目可进行数组元素大小的调整
+//  需要确认数组与实际保护参数数目一致。，避免代码过程调整下数组溢出
+
+#ifndef  ISR_PUSH_STK_FUN_H
+#define  ISR_PUSH_STK_FUN_H
+	void  H_ISR_PUSH_STK();
+	void  H_ISR_POP_STK();
+
+	void  L_ISR_PUSH_STK();
+	void  L_ISR_POP_STK();
+
+	#define  H_STKSAVECOUNT	12
+	#define  L_STKSAVECOUNT	12		//  如果提示最大使用为STK6,0~6定义数量应该为7
+	extern 	volatile unsigned char   H_STKBUFFED[H_STKSAVECOUNT];
+	extern 	volatile unsigned char   L_STKBUFFED[L_STKSAVECOUNT];
+#endif						
+
+//##################################  复制内容到 "isr_push_stk_fun.c"
+//##################################  仅高级中断的最小样例 
+#include "isr_push_stk_fun.h"
+
+volatile unsigned char   H_STKBUFFED[H_STKSAVECOUNT];		//  C变量到的嵌汇编，只能是全局变量，并且使用前缀修饰"_"
+volatile unsigned char   L_STKBUFFED[L_STKSAVECOUNT];
+
+//2、中断使用带参数调用前压栈保护
+	void  H_ISR_PUSH_STK()
+	{
+		__asm
+
+			.define  usebuffed_Pu	_H_STKBUFFED		;// 样例针对高级中断0x04入口，针对低级中断0x14入口必须使用   _L_STKBUFFED
+		.if H_STKSAVECOUNT>0
+			BANKSEL  STK00
+			MOV R0,STK00
+			BANKSEL  usebuffed_Pu
+			MOV usebuffed_Pu+0,R0
+		.endif
+
+		__endasm;
+
+	}
+//3、中断处理结束调用出栈处理
+
+	void  H_ISR_POP_STK()
+	{
+		__asm
+			.define  usebuffed_Po	_H_STKBUFFED		;// 样例针对高级中断0x04入口，针对低级中断0x14入口必须使用   _L_STKBUFFED
+		.if H_STKSAVECOUNT>0
+			BANKSEL  usebuffed_Po
+			MOV R0,	usebuffed_Po+0
+			BANKSEL  STK00
+			MOV STK00,R0
+			.endif
+		__endasm;
+	}

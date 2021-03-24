@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="cdt.managedbuild.config.sdcc.exe.release.1579784109">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.sdcc.exe.release.1579784109" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="hex" artifactName="${ProjName}" buildProperties="" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.config.sdcc.exe.release.1579784109" name="Release" parent="cdt.managedbuild.config.sdcc.exe.release">
+					<folderInfo id="cdt.managedbuild.config.sdcc.exe.release.1579784109." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.sdcc.exe.release.1933331192" name="ChipON Tool Chain" superClass="cdt.managedbuild.toolchain.sdcc.exe.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.target.sdcc.platform.exe.release.1932854576" name="Release Platform" osList="solaris,linux,hpux,aix,qnx,win32" superClass="cdt.managedbuild.target.sdcc.platform.exe.release"/>
+							<builder buildPath="${workspace_loc:/01 GPIO_Sample/Release}" id="cdt.managedbuild.target.sdcc.builder.exe.release.29335897" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make" superClass="cdt.managedbuild.target.sdcc.builder.exe.release"/>
+							<tool id="cdt.managedbuild.tool.sdcc.c.compiler.exe.release.182873312" name="C Compiler" superClass="cdt.managedbuild.tool.sdcc.c.compiler.exe.release">
+								<inputType id="cdt.managedbuild.tool.sdcc.c.compiler.input.1721953128" superClass="cdt.managedbuild.tool.sdcc.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.sdcc.c.linker.exe.release.2145080843" name="C Project Linker Release" superClass="cdt.managedbuild.tool.sdcc.c.linker.exe.release"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.sdcc.exe.debug.9238674">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.sdcc.exe.debug.9238674" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="hex" artifactName="${ProjName}" buildProperties="" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.config.sdcc.exe.debug.9238674" name="Debug" parent="cdt.managedbuild.config.sdcc.exe.debug" postbuildStep="kf8exec_debug.exe ${ProjName}">
+					<folderInfo id="cdt.managedbuild.config.sdcc.exe.debug.9238674." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.sdcc.exe.debug.988088820" name="ChipON Tool Chain" superClass="cdt.managedbuild.toolchain.sdcc.exe.debug">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.target.sdcc.platform.exe.debug.823394222" name="Debug Platform" osList="solaris,linux,hpux,aix,qnx,win32" superClass="cdt.managedbuild.target.sdcc.platform.exe.debug"/>
+							<builder buildPath="${workspace_loc:/01 GPIO_Sample/Debug}" id="cdt.managedbuild.target.sdcc.builder.exe.debug.952794189" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make" superClass="cdt.managedbuild.target.sdcc.builder.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.sdcc.c.compiler.exe.debug.1822919245" name="C Compiler Debug" superClass="cdt.managedbuild.tool.sdcc.c.compiler.exe.debug">
+								<inputType id="cdt.managedbuild.tool.sdcc.c.compiler.input.2142073509" superClass="cdt.managedbuild.tool.sdcc.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.sdcc.c.linker.exe.debug.866250961" name="C Linker Debug" superClass="cdt.managedbuild.tool.sdcc.c.linker.exe.debug"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="01 GPIO_Sample.com.chipon.chiponide.core.projectType.c.810382570" name="KF8-c" projectType="com.chipon.chiponide.core.projectType.c"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+</cproject>
