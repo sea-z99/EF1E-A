@@ -59,10 +59,11 @@ void Led_Tail_AllOpen(void)
 		SPI_Write_2Byte(1,i,0xFF);
 	}
 	SPI_Write_2Byte(1,0x37,0x00);//update
-	for(i=OUT1;i<=OUT16;i++)
+	for(i=OUT1;i<=OUT15;i++)
 	{
 		SPI_Write_2Byte(2,i,0xFF);
 	}
+	SPI_Write_2Byte(2,OUT16,0x57);
 	SPI_Write_2Byte(2,0x37,0x00);//update
 }
 void Led_Tail_AllClose(void)
