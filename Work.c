@@ -205,16 +205,14 @@ void Mode_Act(void)
 	default:break;
 	}
 }
-//uint8 Pwm_Duty[4]={15,15,15,15};
-//uint8 Now_Cycle[4]={0};
-uint8_t pwm_flag;
+extern unsigned int Stop_PWM_H1,Stop_PWM_L1,Stop_PWM_H2,Stop_PWM_L2=0;
 void Timer_PWM_Callback(void)
 {
 	if(PWM_Timer_Flag)
 	{
 		PWM_Timer_Flag =0;
-		PP2=0x00;		//250
-		PP1=0xFA;
+		PP2=Stop_PWM_H1;		//250
+		PP1=Stop_PWM_L1;
 		if(Stop_High_Addr & ADDR1)
 			STOP_1=1;
 		if(Stop_High_Addr & ADDR2)
@@ -227,8 +225,8 @@ void Timer_PWM_Callback(void)
 	else
 	{
 		PWM_Timer_Flag =1;
-		PP2=0x12;		//4750
-		PP1=0x8E;
+		PP2=Stop_PWM_H2;		//4750
+		PP1=Stop_PWM_L2;
 		if(Stop_Low_Addr & ADDR1)
 			STOP_1=0;
 		if(Stop_Low_Addr & ADDR2)

@@ -20,10 +20,8 @@ void main()
     AIE=1; //×ÜÖÐ¶Ï¿ªÆô
 //    PwmDetect();
     Led_Hello_Check();
-
     while(1)
     {
-    	//timer_loop();
     	Tail_Stop_Check_Input();
 		RT_Check_Input();
     }
