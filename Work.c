@@ -24,7 +24,7 @@ volatile unsigned int Stop_High_Addr,Stop_Low_Addr=0;
 volatile unsigned int RT_High_Addr,RT_Low_Addr=0;
 volatile unsigned char Tail_Status,Stop_Status,RT_Status,Fail_Status,RT_EN_Status=0;
 
-
+extern unsigned int Stop_PWM_H1,Stop_PWM_L1,Stop_PWM_H2,Stop_PWM_L2;
 struct Timer pwm;
 uint64_t Time_Counter = 0;
 void Time_Increase(void)
@@ -44,8 +44,12 @@ void Timer1_Init(void)
 	PP2=0x03;		//1000
 	PP1=0xE8;
 	T1CS =0;
-	timer_init(&pwm, Timer_PWM_Callback, 5, 5); //50s loop
-	timer_start(&pwm);
+//	timer_init(&pwm, Timer_PWM_Callback, 5, 5); //50s loop
+//	timer_start(&pwm);
+	Stop_PWM_H1 = 0;
+	Stop_PWM_L1 = 0xFA;
+	Stop_PWM_H2 = 0x12;
+	Stop_PWM_L2 = 0x8E;
 }
 void Timer1_Start(void)
 {
@@ -294,13 +298,18 @@ void Led_Bye(void)
 	delay_ms(200);
 	Led_RT_AllClose();
 	delay_ms(200);
-	Tail_LowWater_Blinky();
+	/*Tail_LowWater_Blinky();
 	delay_ms(1700);
 	Tail1_2_Stop_BackWater_Close();
 	delay_ms(1160);
 	Tail1_2_Stop_FullWater_Close();
 	delay_ms(1000);
-	Tail12_Breath_Close();
+	Tail12_Breath_Close();*/
+	Tail_Single_Low_water();
+	Tail_whole_Low_water_reverse();
+	Tail_Single_Out_water_reverse();
+	Random_flash();
+
 	for(;;);
 }
 void Led_Hello_Check(void)
