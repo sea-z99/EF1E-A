@@ -44,12 +44,7 @@ void Timer1_Init(void)
 	PP2=0x03;		//1000
 	PP1=0xE8;
 	T1CS =0;
-//	timer_init(&pwm, Timer_PWM_Callback, 5, 5); //50s loop
-//	timer_start(&pwm);
-	Stop_PWM_H1 = 0;
-	Stop_PWM_L1 = 0xFA;
-	Stop_PWM_H2 = 0x12;
-	Stop_PWM_L2 = 0x8E;
+	Change_PWM_5();
 }
 void Timer1_Start(void)
 {
