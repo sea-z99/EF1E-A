@@ -8,10 +8,12 @@
 #ifndef WORK_H_
 #define WORK_H_
 
-void Timer1_Init(void);
-void Timer1_Start(void);
-void Timer2_Init(void);
-void Timer2_Start(void);
+void Stop_Timer_Init(void);
+void Stop_Timer_Start(void);
+void RT_Timer_Init(void);
+void RT_Timer_Start(void);
+void HelloBye_Timer_Init(void);
+void HelloBye_Timer_Start(void);
 void Init_IO(void);
 void LED_Water(void);
 void LED_Stop_Open(void);
@@ -20,11 +22,15 @@ void Tail_Stop_Check_Input(void);
 void Mode_Act(void);
 void RT_Mode_Act(void);
 void delay_us(uint16 num);
-void Timer_PWM_Callback(void);
+void STOP_PWM_Callback(void);
 void RT_PWM_Callback(void);
-void Led_Hello_Check(void);
+void Led_Hello_Check(uint8_t Flag);
 void delay_ms(unsigned int num);
 void Init_OSC(unsigned char mode);
+void Hello_Bye_Callback(void);
+void PwmFromInteruppt(void);
+void PwmDetect(void);
+uint8_t SearchPwmFlag(void);
 
 #define Mode1_Status 1<<0
 #define Mode2_Status 1<<1
