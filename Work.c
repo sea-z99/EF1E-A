@@ -407,11 +407,13 @@ void Led_Hello_Check(uint8_t Flag)
 	if(Tail_Status==1&&Flag==1)
 	//if(Tail_Status==1&&Stop_Status==1&&RT_Status==1&&RT_EN_Status==0)
 	{
+		delay_ms(100);
 		Led_Hello();
 	}
 	if(Tail_Status==1&&Flag==2)
 	//if(Tail_Status==1&&Stop_Status==1&&RT_Status==1&&RT_EN_Status==1)
 	{
+		delay_ms(100);
 		Led_Bye();
 	}
 }
